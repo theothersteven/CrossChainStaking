@@ -13,7 +13,7 @@ async function main() {
   const ethClientAsDeployer = ethClient.connect(deployer);
 
   
-  const tx = await ethClientAsDeployer.wrap();
+  const tx = await ethClientAsDeployer.wrap(1000);
   const receipt = await tx.wait();
   console.log("tx", tx);
   console.log("receipt", receipt);

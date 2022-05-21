@@ -10,9 +10,10 @@ async function main() {
   const [deployer, author, collector] = await ethers.getSigners();
   const EthClient = await ethers.getContractFactory("CCStakingEthClient");
   const ethClient = await EthClient.attach(process.env.EthClientAddressRopsten);
+  const ethClientAsDeployer = ethClient.connect(deployer);
 
   
-  const tx = await ethClient.stake({value: 1000000});
+  const tx = await ethClientAsDeployer.stake(1000);
   const receipt = await tx.wait();
   console.log("tx", tx);
   console.log("receipt", receipt);

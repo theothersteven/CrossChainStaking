@@ -12,8 +12,11 @@ contract Lido{
 
 contract WETH9{
     mapping (address => uint) public  balanceOf;
+    mapping (address => mapping (address => uint))  public  allowance;
     function deposit() public payable {}
     function withdraw(uint wad) public {}
+    function approve(address guy, uint wad) public returns (bool) {}
+    function transferFrom(address src, address dst, uint wad) public returns (bool) {}
 }
 
 contract CCStakingEthClient{
@@ -27,24 +30,30 @@ contract CCStakingEthClient{
         weth = WETH9(_wethContract);
     }
 
-    function stake() payable public returns(uint256) {
+    function transferAndStakeWrappedEth(uint256 _amount) public returns(uint256) {
+        weth.transferFrom(msg.sender, address(this), _amount);
+        unwrap(_amount);
+        uint256 stETH = stake(_amount);
+        return stETH;
+    }
+    function stake(uint256 _amount) payable public returns(uint256) {
         console.log("stake function called.");
-        uint256 amount = address(this).balance;
-        uint256 stETH = lido.submit{value: amount}(address(0));
-        console.log("Staked ", amount, " ETH");
+        require(_amount <= address(this).balance);
+        uint256 stETH = lido.submit{value: _amount}(address(0));
+        console.log("Staked ", _amount, " ETH");
         console.log("Received ", stETH, " stETH");
         return stETH;
     }
 
-    function unwrap() public {
-        uint256 amount = weth.balanceOf(address(this));
-        console.log("unwrap called, amount: ", amount);
-        weth.withdraw(amount);
+    function unwrap(uint256 _amount) public {
+        require(_amount <= weth.balanceOf(address(this)));
+        console.log("unwrap called, amount: ", _amount);
+        weth.withdraw(_amount);
     }
-    function wrap() public {
-        uint256 amount = address(this).balance;
-        console.log("wrap called, amount: ", amount);
-        weth.deposit{value: amount}();
+    function wrap(uint256 _amount) public {
+        require(_amount <= address(this).balance);
+        console.log("wrap called, amount: ", _amount);
+        weth.deposit{value: _amount}();
     }
     
     function checkStEthBalance() public view returns (uint256) {
