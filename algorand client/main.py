@@ -110,7 +110,7 @@ def main():
                 freeze=addr,
                 clawback=addr,
                 unit_name="ra-ex",
-                asset_name="Deposited WETH",
+                asset_name="dWETH",
             ),
             signer=addr_signer,
         )
@@ -135,7 +135,7 @@ def main():
                 freeze=addr,
                 clawback=addr,
                 unit_name="ra-ex",
-                asset_name="Deposited WETH",
+                asset_name="wstETH",
             ),
             signer=addr_signer,
         )
@@ -386,25 +386,14 @@ def main():
     # Issuing tokens 
     #################
 
-    print("Issuing token! The manager is issuing token to the user")
+    print("Issuing token! The manager is issuing dwETH token to the user")
     # issuing token
     atc = AtomicTransactionComposer()
-    # atc.add_transaction(
-    #     TransactionWithSigner(
-    #         txn=AssetTransferTxn(addr, sp, user_addr, amount, created_token_id, revocation_target=addr), signer=addr_signer
-    #     )
-    # )
     atc.add_transaction(
         TransactionWithSigner(
             txn=AssetTransferTxn(addr, sp, user_addr, amount, created_token_id, revocation_target=addr), signer=addr_signer
         )
     )
-    # clawback token
-    # atc.add_transaction(
-    #     TransactionWithSigner(
-    #         txn=AssetTransferTxn(addr, sp, addr, amount, created_token_id, revocation_target=user_addr), signer=addr_signer
-    #     )
-    # )
     atc.execute(client, 2)
     owner_balance1 = get_asa_balance(addr, created_token_id)
     owner_balance2 = get_asa_balance(addr, created_token_id2)
