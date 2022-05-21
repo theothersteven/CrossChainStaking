@@ -10,7 +10,8 @@ async function main() {
   const EthClient = await ethers.getContractFactory("CCStakingEthClient");
   const ethClient = await EthClient.deploy(
     process.env.LIDO_ADDRESS_ROPSTEN,
-    process.env.WETH_ADDRESS_ROPSTEN
+    process.env.WETH_ADDRESS_ROPSTEN,
+    process.env.stETH_ADDRESS_ROPSTEN
   );
   await ethClient.deployed();
   console.log("Deployed.")

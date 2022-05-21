@@ -1,0 +1,28 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: CCStakingEthClient
+    network: ropsten
+    source:
+      address: "0x88b9E8a6211466aF42B1D92402d4075dE6cf2ffe"
+      abi: CCStakingEthClient
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+
+      abis:
+        - name: CCStakingEthClient
+          file: ./abis/CCStakingEthClient.json
+      eventHandlers:
+        - event: Staked(uint256)
+          handler: handleStaked
+        - event: Unwrapped(uint256)
+          handler: handleUnwrapped
+        - event: Withdrawn(uint256)
+          handler: handleWithdrawn
+
+      file: ./src/mapping.ts

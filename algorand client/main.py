@@ -103,9 +103,9 @@ def main():
             txn=AssetCreateTxn(
                 addr,
                 sp,
-                1000000,
+                1000000000000000000,
                 18,
-                True,
+                False,
                 manager=addr,
                 freeze=addr,
                 clawback=addr,
@@ -128,9 +128,9 @@ def main():
             txn=AssetCreateTxn(
                 addr,
                 sp,
-                1000000,
+                1000000000000000000,
                 18,
-                True,
+                False,
                 manager=addr,
                 freeze=addr,
                 clawback=addr,
