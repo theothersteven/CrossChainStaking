@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/stevenyin/Documents/WormholeHack/CrossChainStaking/ethereum client/contracts/CCStakingEthClient.sol": {
-      "lastModificationDate": 1653075118561,
-      "contentHash": "88cd0d6e20e743a126f92fa154b4d590",
+      "lastModificationDate": 1653100370189,
+      "contentHash": "5cfec9ee1561a6b1347f2375ee92aff3",
       "sourceName": "contracts/CCStakingEthClient.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -43,7 +43,8 @@
       ],
       "artifacts": [
         "CCStakingEthClient",
-        "Lido"
+        "Lido",
+        "WETH9"
       ]
     },
     "/Users/stevenyin/Documents/WormholeHack/CrossChainStaking/ethereum client/node_modules/hardhat/console.sol": {

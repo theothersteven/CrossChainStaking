@@ -8,7 +8,10 @@ const hre = require("hardhat");
 async function main() {
   const [deployer, author, collector] = await ethers.getSigners();
   const EthClient = await ethers.getContractFactory("CCStakingEthClient");
-  const ethClient = await EthClient.deploy(process.env.LIDO_ADDRESS_GOERLI);
+  const ethClient = await EthClient.deploy(
+    process.env.LIDO_ADDRESS_ROPSTEN,
+    process.env.WETH_ADDRESS_ROPSTEN
+  );
   await ethClient.deployed();
   console.log("Deployed.")
   console.log("Contract address", ethClient.address);

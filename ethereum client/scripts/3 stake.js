@@ -9,7 +9,7 @@ const { constants } = require('@openzeppelin/test-helpers');
 async function main() {
   const [deployer, author, collector] = await ethers.getSigners();
   const EthClient = await ethers.getContractFactory("CCStakingEthClient");
-  const ethClient = await EthClient.attach(process.env.EthClientAddress);
+  const ethClient = await EthClient.attach(process.env.EthClientAddressRopsten);
 
   
   const tx = await ethClient.stake({value: 1000000});
