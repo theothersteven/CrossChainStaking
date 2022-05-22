@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 // import "hardhat/console.sol";
 // import "../0.4.24/Lido.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+// import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Lido{
   function submit(address _referral) external payable returns (uint256) {}
@@ -26,7 +26,7 @@ contract StETH{
    function transfer(address _recipient, uint256 _amount) public returns (bool) {}
 }
 
-contract CCStakingEthClient is Ownable{
+contract CCStakingEthClient {
     address private LIDO_CONTRACT;
     Lido private lido; 
     WETH9 private weth;
@@ -82,7 +82,7 @@ contract CCStakingEthClient is Ownable{
         return balance;
     }
 
-    function withDrawStEth(uint256 _amount, address _recipient) onlyOwner public {
+    function withDrawStEth(uint256 _amount, address _recipient) public {
         stEth.transfer(_recipient, _amount);
         emit Withdrawn(_amount);
     }

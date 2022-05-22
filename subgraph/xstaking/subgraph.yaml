@@ -6,7 +6,7 @@ dataSources:
     name: CCStakingEthClient
     network: ropsten
     source:
-      address: "0x44cE6F942775fd80c0209271d8b53BbE3Dcb6561"
+      address: "0x5a09E033863f74E80973491930d067Dc3B8797Cd"
       abi: CCStakingEthClient
       startBlock: 12286090
     mapping:

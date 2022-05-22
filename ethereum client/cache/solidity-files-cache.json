@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/stevenyin/Documents/WormholeHack/CrossChainStaking/ethereum client/contracts/CCStakingEthClient.sol": {
-      "lastModificationDate": 1653165508810,
-      "contentHash": "c9d5f4c3caf7a356eaccfd0f03184029",
+      "lastModificationDate": 1653184227949,
+      "contentHash": "72e0570947fc2680b70e6ed70d2d0a34",
       "sourceName": "contracts/CCStakingEthClient.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -35,9 +35,7 @@
           }
         }
       },
-      "imports": [
-        "@openzeppelin/contracts/access/Ownable.sol"
-      ],
+      "imports": [],
       "versionPragmas": [
         "^0.8.0"
       ],
