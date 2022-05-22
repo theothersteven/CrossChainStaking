@@ -1,0 +1,6 @@
+type StEthPool @entity {
+  id: ID!
+  cumStaked: BigInt!
+  cumUnwrapped: BigInt!
+  cumWithdrawal: BigInt!
+}
