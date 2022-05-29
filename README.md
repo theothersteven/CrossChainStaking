@@ -1,3 +1,2 @@
 # CrossChainStaking
-
-CCStakingEthClient Goerli address: `0x7ABc734f715c5418DE22b01A7544AE40Fb3Df587`
+This repo contains the smart contracts and subgraph components of the xStaking project. For frontend and wormhole integration, see `https://github.com/jasony123123/xStaking`
